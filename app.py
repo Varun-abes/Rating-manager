@@ -5,13 +5,13 @@ from send_mail import send_mail
 
 app = Flask(__name__)
 
-ENV = 'dev'
+ENV = 'prod'
 if(ENV == 'dev'):
     app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/Ratings'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost:5433/Ratings'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:\mvlziwyxdligvw:a7bf26f0f8050b11eff16c176a7fc7e7aee0633e06e71736c16aa34ea0f246d5@ec2-3-219-135-162.compute-1.amazonaws.com:5432\der69nsvob6bas'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres:\mvlziwyxdligvw:a7bf26f0f8050b11eff16c176a7fc7e7aee0633e06e71736c16aa34ea0f246d5@ec2-3-219-135-162.compute-1.amazonaws.com:5432\der69nsvob6bas'
     
     
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
